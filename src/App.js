@@ -18,19 +18,18 @@ function shuffle(array) {
   return array;
 }
 
+const canteens = shuffle(
+    ['Finefood', 
+    'Foodclique', 
+    'Engineering', 
+    'Yusof Ishak House',
+    'Science',
+    'Prince George\'s Park']
+    )
+
 function App() {
   const [mode, setMode] = useState('main');
 
-  const canteens = useState(
-    shuffle(
-      ['Finefood', 
-      'Foodclique', 
-      'Engineering', 
-      'Yusof Ishak House',
-      'Science',
-      'Prince George\'s Park']
-      )
-  )
   const [selectedIndex, setSelectedIndex] = useState(0)
 
   const handleStart = () => {
@@ -40,7 +39,7 @@ function App() {
 
   return (
     <div className="h-screen flex flex-col justify-center bg-red-700 text-white">
-      { mode === 'main' && <div className="w-full md:w-1/2 mx-auto">
+      { mode == 'main' && <div className="w-full md:w-1/2 mx-auto">
         <h1 className="text-center text-md font-bold">NUS what to eat?</h1>
         <p className="text-center text-2xl">
           Randomly pick a canteen on campus
@@ -51,7 +50,7 @@ function App() {
           </button>
         </div>
       </div> }
-      { mode === 'selected' && 
+      { mode == 'selected' && 
         <>
           <p className="text-center text-3xl">
             <b>{canteens[selectedIndex]}</b>
