@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 
 function shuffle(array) {
   var currentIndex = array.length,  randomIndex;
 
   // While there remain elements to shuffle...
-  while (currentIndex != 0) {
+  while (currentIndex !== 0) {
 
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -21,7 +21,7 @@ function shuffle(array) {
 function App() {
   const [mode, setMode] = useState('main');
 
-  const [canteens, setCanteens] = useState(
+  const canteens = useState(
     shuffle(
       ['Finefood', 
       'Foodclique', 
@@ -40,7 +40,7 @@ function App() {
 
   return (
     <div className="h-screen flex flex-col justify-center bg-red-700 text-white">
-      { mode == 'main' && <div className="w-full md:w-1/2 mx-auto">
+      { mode === 'main' && <div className="w-full md:w-1/2 mx-auto">
         <h1 className="text-center text-md font-bold">NUS what to eat?</h1>
         <p className="text-center text-2xl">
           Randomly pick a canteen on campus
@@ -51,7 +51,7 @@ function App() {
           </button>
         </div>
       </div> }
-      { mode == 'selected' && 
+      { mode === 'selected' && 
         <>
           <p className="text-center text-3xl">
             <b>{canteens[selectedIndex]}</b>
